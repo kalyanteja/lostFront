@@ -1,0 +1,12 @@
+<h1>Documents Lost/Found</h1>
+
+<ul [@listStagger]="users$">
+  <li *ngFor="let user of users$">
+    <a routerLink="/details/{{user.DocId}}">{{user.DocumentTypeName}}</a>
+
+    <ul>
+      <li> {{user.DocumentNumber}}</li>
+      <li> {{user.GivenName}}</li>
+    </ul>
+  </li>
+</ul>

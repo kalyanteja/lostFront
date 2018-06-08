@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="mt-2" [hidden]="message && message.message">
+        <h3>Found an Identification card somewhere?</h3>
+        <h6>log it here and help people who lost find it...</h6>
+    
+        <form class="mt-4" (ngSubmit)="onSubmit()" #found>
+            <div class="form-group">
+                <label for="documentType">Identity Type?</label>
+                <select class="form-control" name="documentType" id="documentType" #documentType="ngModel" required [(ngModel)]="document.documentType" [ngModelOptions]="{ updateOn: 'submit'}">
+                    <option *ngFor="let docType of documentTypes" [value]="docType.Id">{{docType.Name}}</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="documentNumber">Identity #</label>
+                <input type="text" required class="form-control" id="documentNumber" [(ngModel)]="document.documentNumber" name="documentNumber" #documentNumber="ngModel" [ngModelOptions]="{ updateOn: 'submit'}">
+                <div *ngIf="documentNumber.touched && !documentNumber.valid" class="alret alert-danger">Doc# is required</div>
+            </div>
+            <div class="form-group">
+                <label for="givenName">Name as on the Id!</label>
+                <input type="text" class="form-control" id="givenName" required [(ngModel)]="document.givenName" name="givenName" #givenName="ngModel" [ngModelOptions]="{ updateOn: 'submit'}">
+                <div [hidden]="givenName.valid || givenName.pristine" class="alret alert-danger">Name is required</div>
+            </div>
+            <div class="form-group">
+                <label for="country">Issued Country</label>
+                <input type="text" class="form-control" id="country" required [(ngModel)]="document.country" name="country" #country="ngModel" [ngModelOptions]="{ updateOn: 'submit'}">
+                <div [hidden]="country.valid || country.pristine" class="alret alert-danger">Country is required</div>
+            </div>
+    
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </div>
+    
+
+    <div class="mt-5" *ngIf="document.documentType && document.documentNumber && document.givenName && document.country && message && message.message">
+        
+        <div class="alert alert-success">{{message.message}}</div>
+        <h3 class="mt-2">Great job!</h3><h4> Let's hope {{document.givenName}} finds his lost ID!</h4>
+        <h5 class="mt-4">Here's the details incase you wanna be extra helpful and review again:</h5>
+        <ul>
+            <li>{{document.documentType}}</li>
+            <li>{{document.givenName}}</li>
+            <li>{{document.documentNumber}}</li>
+            <li>{{document.country}}</li>
+        </ul>
+    </div>
+</div>

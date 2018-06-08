@@ -1,0 +1,2 @@
+ALTER TABLE LostDocument ADD LostDocumentType_Id INT NOT NULL DEFAULT 0;
+ALTER TABLE LostDocument ADD CONSTRAINT fk_LostDocumentType_Id FOREIGN KEY (LostDocumentType_Id) REFERENCES DocumentType(Id);
