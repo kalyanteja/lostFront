@@ -10,32 +10,38 @@ import { DataService} from '../data.service';
 export class FoundComponent implements OnInit {
 
   documentTypes: any;
+  genderValues: string[];
   message: any;
 
   document = {
-    documentType: {},
+    id: "",
+    documentType: Object,
     documentNumber: "",
     givenName: "",
-    country: ""
+    country: "",
+    validityDate: "",
+    dateOfBirth: "",
+    issuedOn: "",
+    sex: "",
   }
 
   constructor(private data: DataService) { }
 
   onSubmit(){
     this.data.createDocument(this.document).subscribe(data => {
-        this.message = data;
+        const insertedDocId = (<any>data[0]).id;
+        this.document.id = insertedDocId;
+        this.message = "Details logged!";
       }
     );
   }
 
-  log(x) {
-    console.log(x);
-  }
-
   ngOnInit() {
     this.message = undefined;
-    this.data.getDocumentTypes().subscribe(data =>
-      this.documentTypes = data
-    )
+    this.genderValues = ["Male", "Female"];
+    this.data.getDocumentTypes().subscribe(data => {
+      this.documentTypes = data;
+      this.document.documentType = this.documentTypes[0].Id;
+    })
   }
 }

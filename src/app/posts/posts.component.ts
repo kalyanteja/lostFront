@@ -11,12 +11,32 @@ import { ActivatedRoute} from '@angular/router';
 export class PostsComponent implements OnInit {
 
   posts$: Object;
+  documentTypes: any;
+
+  searchResults: any;
+
+  searchData = {
+    documentType: Object,
+    docNumber: "",
+    givenName: "",
+    country: ""
+  };
 
   constructor(private data: DataService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.data.getPosts().subscribe(data => this.posts$ = data);
+    this.data.getDocumentTypes().subscribe(data => {
+      this.documentTypes = data;
+      this.searchData.documentType = this.documentTypes[0].Id;
+    })
   }
 
+  search(){
+    console.log('search clicked');
+    this.data.searchDocuments(this.searchData).subscribe(data =>{
+      console.log(data);
+      this.searchResults = data;
+    })
+  }
 }

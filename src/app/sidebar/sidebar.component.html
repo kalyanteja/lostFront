@@ -1,17 +1,17 @@
 <nav>
   <ul>
     <li>
-      <a routerLink="" [class.activated]="currentUrl == '/'">
-        <i class="material-icons">supervised_user_circle</i>
+      <a routerLink="" [class.activated]="currentUrl == '/'" title="About LostMy.Id">
+        <i class="material-icons">perm_identity</i>
       </a>
     </li>
     <li>
-        <a routerLink="posts" [class.activated]="currentUrl == '/posts'">
-          <i class="material-icons">message</i>
+        <a routerLink="posts" [class.activated]="currentUrl == '/posts'" title="Search your lost identities">
+          <i class="material-icons">search</i>
         </a>
     </li>
     <li>
-      <a routerLink="found" [class.activated]="currentUrl == '/found'">
+      <a routerLink="found" [class.activated]="currentUrl == '/found'" title="Enter lost identities">
         <i class="material-icons">assignment_ind</i>
       </a>
     </li>

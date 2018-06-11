@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PostsComponent } from './posts/posts.component';
 import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
+import { NgDatepickerModule } from 'ng2-datepicker';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -31,6 +32,7 @@ import { FoundComponent } from './found/found.component';
     BrowserAnimationsModule,
     FormsModule,
     NgbModule.forRoot(),
+    NgDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

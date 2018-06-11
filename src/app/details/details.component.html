@@ -3,11 +3,12 @@
     <h1>{{user$.DocumentTypeName}}</h1>
 
     <ul>
-      <li><strong>Name:</strong> {{user$.GivenName}}</li>
-      <li><strong>Document #:</strong> {{user$.DocumentNumber}}</li>
-      <li><strong>Nationality:</strong> {{user$.CountryId}}</li>
-      <li><strong>Gender:</strong> {{user$.Sex}}</li>
-      <li><strong>Date of birth:</strong> {{user$.DateOfBirth}}</li>
-      <li><strong>Found in:</strong> {{user$.FoundLocality}}</li>
+      <li><strong>Name: </strong> {{user$.GivenName}}</li>
+      <li><strong>Document #: </strong> {{user$.DocumentNumber}}</li>
+      <li><strong>Nationality: </strong> {{user$.Country}}</li>
+      <li><strong>Gender: </strong> {{user$.Sex}}</li>
+      <li><strong>Date of birth: </strong> {{user$.DateOfBirth | date: 'dd-MMM-yyyy'}}</li>
+      <li><strong>Issued on: </strong> {{user$.IssuedOn  | date: 'dd-MMM-yyyy'}}</li>
+      <li><strong>Expiry/Validity: </strong> {{user$.ValidityDate  | date: 'dd-MMM-yyyy'}}</li>
     </ul>
 </div>
