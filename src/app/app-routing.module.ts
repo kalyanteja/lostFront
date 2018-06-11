@@ -4,11 +4,16 @@ import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
 import { PostsComponent } from './posts/posts.component';
 import { FoundComponent } from './found/found.component';
+import { SummaryComponent } from './summary/summary.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'users',
     component: UsersComponent
+  },
+  {
+    path: '',
+    component: SummaryComponent
   },
   {
     path: 'details/:id',

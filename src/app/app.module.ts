@@ -15,6 +15,7 @@ import { NgDatepickerModule } from 'ng2-datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FoundComponent } from './found/found.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FoundComponent } from './found/found.component';
     UsersComponent,
     DetailsComponent,
     FoundComponent,
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,

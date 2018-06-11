@@ -59,7 +59,7 @@
 
     <div class="mt-5" *ngIf="document.id && document.documentType && document.documentNumber && document.givenName && document.country && message">
         <div class="alert alert-success">{{message}}</div>
-        <h3 class="mt-2">Great job!</h3><h4> Let's hope <strong>{{document.givenName}}</strong> finds his lost ID!</h4>
+        <h3 class="mt-2">Great job!</h3><h4> Let's hope <strong>{{document.givenName}}</strong> finds his/her lost ID!</h4>
 
         <h5 class="mt-4"><a routerLink="/details/{{document.id}}">Here's</a> the details incase you wanna be extra helpful and review</h5>
     </div>

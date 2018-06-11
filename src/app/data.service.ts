@@ -43,4 +43,8 @@ export class DataService {
     // Make the API call using the new parameters.
     return this.http.get('http://localhost:3000/searchDocuments/', { params: Params });
   }
+
+  getSummary(){
+    return this.http.get('http://localhost:3000/summary');
+  }
 }
