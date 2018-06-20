@@ -7,28 +7,32 @@ import { HttpParams } from '@angular/common/http';
 })
 export class DataService {
 
+  //prod server - http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/
+  //local url - http://localhost:3000/
+  private apiUrl = "http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/"
+
   constructor(private http: HttpClient) { }
 
   getUsers(){
-    return this.http.get('http://localhost:3000/lostDocuments');
+    return this.http.get(`${this.apiUrl}lostDocuments`);
   }
 
   getUser(documentId){
-    return this.http.get('http://localhost:3000/lostDocuments/' +documentId);
+    return this.http.get(`${this.apiUrl}lostDocuments/${documentId}`);
   }
 
   getPosts(){
-    return this.http.get('http://localhost:3000/lostDocuments');
+    return this.http.get(`${this.apiUrl}lostDocuments`);
   }
 
   createDocument(document){
-    return this.http.post('http://localhost:3000/createDocument', document, {
+    return this.http.post(`${this.apiUrl}createDocument`, document, {
       responseType: "json"
     });
   }
 
   getDocumentTypes(){
-    return this.http.get('http://localhost:3000/documentTypes');
+    return this.http.get(`${this.apiUrl}documentTypes`);
   }
 
   searchDocuments(searchData){
@@ -41,10 +45,10 @@ export class DataService {
     Params = Params.append('country', searchData.country);
 
     // Make the API call using the new parameters.
-    return this.http.get('http://localhost:3000/searchDocuments/', { params: Params });
+    return this.http.get(`${this.apiUrl}searchDocuments/`, { params: Params });
   }
 
   getSummary(){
-    return this.http.get('http://localhost:3000/summary');
+    return this.http.get(`${this.apiUrl}summary`);
   }
 }
