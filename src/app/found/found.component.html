@@ -21,9 +21,11 @@
                 <input type="text" class="form-control" id="givenName" required [(ngModel)]="document.givenName" name="givenName" #givenName="ngModel" [ngModelOptions]="{ updateOn: 'submit'}">
                 <div class="alret alert-danger" *ngIf="givenName.invalid && (givenName.dirty || givenName.touched)">Name is required</div>
             </div>
-            <div class="form-group required">
+            <div class="form-group required w-50">
                 <label class="control-label" for="country">Issued Country</label>
-                <input type="text" class="form-control" id="country" required [(ngModel)]="document.country" name="country" #country="ngModel" [ngModelOptions]="{ updateOn: 'submit'}">
+                <select class="form-control" name="country" id="country" #country="ngModel" required [(ngModel)]="document.country" [ngModelOptions]="{ updateOn: 'submit'}">
+                    <option *ngFor="let cntry of countries" [value]="cntry.Name">{{cntry.Name}}</option>
+                </select>
                 <div class="alret alert-danger" *ngIf="country.invalid && (country.dirty || country.touched)">Country is required</div>
             </div>
 

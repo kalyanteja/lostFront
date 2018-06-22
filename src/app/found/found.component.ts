@@ -12,6 +12,7 @@ export class FoundComponent implements OnInit {
   documentTypes: any;
   genderValues: string[];
   message: any;
+  countries: {};
 
   document = {
     id: "",
@@ -37,11 +38,17 @@ export class FoundComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.message = undefined;
     this.genderValues = ["Male", "Female"];
+
     this.data.getDocumentTypes().subscribe(data => {
       this.documentTypes = data;
       this.document.documentType = this.documentTypes[0].Id;
-    })
+    });
+
+    //get all countries from a local json file
+    this.data.getCountries().subscribe(data => {
+      this.countries = (<any>data).Countries;
+      this.document.country = this.countries[0].Name;
+    });
   }
 }

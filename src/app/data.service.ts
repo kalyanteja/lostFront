@@ -9,7 +9,8 @@ export class DataService {
 
   //prod server - http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/
   //local url - http://localhost:3000/
-  private apiUrl = "http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/"
+  private apiUrl = "http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/";
+  private countryApiUri = "./assets/json/countries.json";
 
   constructor(private http: HttpClient) { }
 
@@ -50,5 +51,9 @@ export class DataService {
 
   getSummary(){
     return this.http.get(`${this.apiUrl}summary`);
+  }
+
+  getCountries(){
+    return this.http.get(this.countryApiUri);
   }
 }
