@@ -12,10 +12,6 @@ body {
     color:red;
 }
 
-.country-flg-details {
-    height: 20px;
-}
-
 #container {
    display: grid;
    grid-template-columns: 70px auto;
@@ -57,3 +53,33 @@ body {
        }
    }
 }
+
+.country-flg-details {
+    height: 170px;
+}
+
+.details-div{
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 8px;
+    max-width: 960px;
+}
+
+.doc-details-box {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.doc-details-box>* {
+    flex: 1 1 65px;
+}
+
+.wordwrap { 
+    white-space: pre-wrap;      /* CSS3 */   
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
+ }
