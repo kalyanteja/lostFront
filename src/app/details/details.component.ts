@@ -10,7 +10,8 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
 
-  user$: Object;
+  user$: any;
+  countries: any[];
 
   constructor(
     private data: DataService,
@@ -22,6 +23,21 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.data.getUser(this.user$).subscribe(data => {
       this.user$ = data;
-    })
+      
+      //get all countries from a local json file and set user country flag
+      this.data.getCountries().subscribe(data => {
+        this.countries = (<any>data).Countries;
+        this.user$.countryFlag = this.getCountryFlagUrl(this.user$.Country);
+      });
+    });
+  }
+
+  getCountryFlagUrl(countryName: string){
+    console.log(countryName);
+    if (countryName && this.countries && this.countries.length > 0){
+      return this.countries.find(c => c.name === countryName).flag;
+    }
+    
+    return "";
   }
 }

@@ -5,7 +5,9 @@
     <ul>
       <li><strong>Name: </strong> {{user$.GivenName}}</li>
       <li><strong>Document #: </strong> {{user$.DocumentNumber}}</li>
-      <li><strong>Nationality: </strong> {{user$.Country}}</li>
+      <li><strong>Nationality: </strong> {{user$.Country}} 
+        <img title="{{user$.Country}}" src="{{user$.countryFlag}}" class="country-flg-details">
+      </li>
       <li><strong>Gender: </strong> {{user$.Sex}}</li>
       <li><strong>Date of birth: </strong> {{user$.DateOfBirth | date: 'dd-MMM-yyyy'}}</li>
       <li><strong>Issued on: </strong> {{user$.IssuedOn  | date: 'dd-MMM-yyyy'}}</li>
