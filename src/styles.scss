@@ -46,7 +46,7 @@ body {
        padding: 30px 50px;
 
        @media screen and (max-width: 600px) {
-            padding: 3px 5px;
+            padding: 8px 12px;
         }
 
        ul {
@@ -85,7 +85,7 @@ body {
 }
 
 .country-flg-details {
-    height: 170px;
+    height: 75px;
 }
 
 .details-div{
@@ -93,26 +93,21 @@ body {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 8px;
-    max-width: 960px;
+    max-width: 780px;
 }
 
 .doc-details-box {
+    padding-left: 20%;
+    @media screen and (max-width: 400px) {
+        padding-left: 2%;
+    }
+
     height: 400px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 .doc-details-box>* {
-    flex: 1 1 65px;
-}
-
-.summary-details-box {
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.summary-details-box>* {
     flex: 1 1 65px;
 }
 

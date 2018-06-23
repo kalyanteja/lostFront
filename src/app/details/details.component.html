@@ -1,21 +1,20 @@
 <div class="details-div " *ngIf="user$">
     <div class="row d-flex justify-content-center"><h2> <strong>{{user$.DocumentTypeName}} details</strong> </h2></div>
-
+    <div class="text-center mt-3"><img title="{{user$.Country}}" src="{{user$.countryFlag}}" class="country-flg-details"></div>
+    <div class="text-center mt-2 wordwrap"> <h6> <strong>{{user$.Country}}</strong></h6></div>
     <div class="doc-details-box mt-5">
-        <div>Name on document: </div>
-        <div>Document #:</div>
-        <div>Gender:</div>
-        <div>Date of birth:</div>
-        <div>Issued on:</div>
-        <div>Expiry/Validity:</div>
-        <div><strong> {{user$.GivenName}}</strong></div>
-        <div><strong>{{user$.DocumentNumber}}</strong></div>
-        <div><strong> {{user$.Sex}}</strong></div>
-        <div><strong>{{user$.DateOfBirth | date: 'dd-MMM-yyyy'}}</strong></div>
-        <div><strong>{{user$.IssuedOn  | date: 'dd-MMM-yyyy'}}</strong></div>
-        <div><strong>{{user$.ValidityDate  | date: 'dd-MMM-yyyy'}}</strong></div>
-        <div class="text-center"><img title="{{user$.Country}}" src="{{user$.countryFlag}}" class="country-flg-details"></div>
-        <div class="text-center wordwrap"> <h3> <strong>{{user$.Country}}</strong></h3></div>
+        <div class="w-50 wordwrap">Name on document: </div>
+        <div class="w-50 wordwrap">Document #:</div>
+        <div class="w-50 wordwrap">Gender:</div>
+        <div class="w-50 wordwrap">Date of birth:</div>
+        <div class="w-50 wordwrap">Issued on:</div>
+        <div class="w-50 wordwrap">Expiry/Validity:</div>
+        <div class="w-50 wordwrap"><strong> {{user$.GivenName}}</strong></div>
+        <div class="w-50 wordwrap"><strong>{{user$.DocumentNumber}}</strong></div>
+        <div class="w-50 wordwrap"><strong> {{user$.Sex}}</strong></div>
+        <div class="w-50 wordwrap"><strong>{{user$.DateOfBirth | date: 'dd-MMM-yyyy'}}</strong></div>
+        <div class="w-50 wordwrap"><strong>{{user$.IssuedOn  | date: 'dd-MMM-yyyy'}}</strong></div>
+        <div class="w-50 wordwrap"><strong>{{user$.ValidityDate  | date: 'dd-MMM-yyyy'}}</strong></div>
     </div>
 </div>
 <div class="mt-4">
