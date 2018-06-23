@@ -1,6 +1,12 @@
 nav {
     background: #2D2E2E;
+    text-align: center;
     height: 100%;
+
+    @media screen and (max-width: 600px) {
+        column-count: 3;
+        height: fit-content;
+    }
 
     ul {
         list-style-type: none;

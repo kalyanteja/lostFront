@@ -24,6 +24,7 @@ export class FoundComponent implements OnInit {
     dateOfBirth: "",
     issuedOn: "",
     sex: "",
+    submitterEmail: "",
   }
 
   constructor(private data: DataService) { }

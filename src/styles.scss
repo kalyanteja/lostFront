@@ -12,17 +12,47 @@ body {
     color:red;
 }
 
+.left-space {
+    padding-left: 7%;
+}
+
+.less-padding {
+    padding: 2px;
+}
+
+.change-for-laptop {
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    div {
+        @media screen and (max-width: 600px) {
+            max-width: 80% !important
+        }
+    }
+}
+
 #container {
    display: grid;
    grid-template-columns: 70px auto;
    height: 100%;
 
+   @media screen and (max-width: 600px) {
+        display: inline;
+    }
+
    #content {
        padding: 30px 50px;
 
+       @media screen and (max-width: 600px) {
+            padding: 3px 5px;
+        }
+
        ul {
            list-style-type: none;
-           margin:0;padding:0;
+           margin:0;
+           padding:0;
        
            li {
                background: #fff;
@@ -73,6 +103,16 @@ body {
     flex-wrap: wrap;
 }
 .doc-details-box>* {
+    flex: 1 1 65px;
+}
+
+.summary-details-box {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.summary-details-box>* {
     flex: 1 1 65px;
 }
 

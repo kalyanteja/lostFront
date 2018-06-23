@@ -1,28 +1,26 @@
-<div class="">
+<div class="left-space">
     <h3>Search for lost Identification card here...</h3>
     <div class="mt-5">
         <form  name="form" #f="ngForm" novalidate>
-            <div class="row">
-                <div class="col-4">
+            <div class="row change-for-laptop">
+                <div class="form-group col-4">
                     <label for="documentType">Identification Type</label>
                     <select class="form-control" name="documentType" id="documentType" #documentType="ngModel" [(ngModel)]="searchData.documentType">
                         <option *ngFor="let docType of documentTypes" [value]="docType.Id">{{docType.Name}}</option>
                     </select>
                 </div>
-                <div class="col-2"></div>
-                <div class="col-4">
+                <div class="form-group col-4">
                     <label for="docNumber">Identification #</label>
                     <input class="form-control" id="docNumber" type="text" [(ngModel)]="searchData.docNumber" name="docNumber" #docNumber="ngModel">
                 </div>
             </div>
             
-            <div class="mt-4 row">
-                <div class="col-4">
+            <div class="row change-for-laptop">
+                <div class="form-group col-4">
                     <label for="givenName">Name on Id</label>
                     <input class="form-control" id="givenName" type="text" [(ngModel)]="searchData.givenName" name="givenName" #givenName="ngModel">
                 </div>
-                <div class="col-2"></div>
-                <div class="col-4">
+                <div class="form-group col-4">
                     <label for="country">Country</label>
                     <input class="form-control" id="country" type="text" [(ngModel)]="searchData.country" name="country" #country="ngModel">
                 </div>
