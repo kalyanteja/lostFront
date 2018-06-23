@@ -1,33 +1,28 @@
 <div>
   <div class="text-center">
     <h3>
-        “Happiness is a simple game of lost and found: Lose the things you take for granted, and you will feel great happiness once they are found.”
+        “Your Identity is your most valuable possession. Get it back!”
     </h3>
   </div>
-  <div class="mt-5">
-      <div class="row d-flex justify-content-center">
-        <div class="card w-75">
-          <img class="card-img-top" src="./assets/images/people.png" alt="Card image cap">
-          <div class="card-body">
-            <h2 class="card-text text-center">We've helped <strong class="text-info">{{TotalRecords}}</strong> people find their lost identification cards!</h2>
-          </div>
-        </div>
-      </div>
 
-      <div class="row d-flex justify-content-center">
-        <div class="card mt-5 w-25 col-3">
-          <img class="card-img-top" src="./assets/images/id-card.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-text">People lost <strong class="text-danger">{{TotalDocumentTypes}} </strong>differnt Identification types so far ranging from Passports to Driver's licenses...</h4>
-          </div>
-        </div>
-        <div class="col-1"></div>
-        <div class="card mt-5 w-50 col-5">
-          <img class="card-img-top" src="./assets/images/count1.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-text">People from <strong class="text-primary">{{TotalCountries}}</strong> different nations has used <a href="#">lostMy.Id</a> to find their lost identification cards</h4>
-          </div>
-        </div>
-      </div>      
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="card card-1">
+        <h3>Users</h3>
+        <p>We've helped <strong class="text-info large-font">{{TotalRecords}}</strong> people find their lost identification cards.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-2">
+        <h3>Lost Id.</h3>
+        <p>People lost <strong class="text-danger large-font">{{TotalDocumentTypes}} </strong>differnt Identification types so far ranging from Passports to Driver's licenses...</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-3">
+        <h3>Around the globe!</h3>
+        <p>People from <strong class="text-primary large-font">{{TotalCountries}}</strong> different nations has used <a href="#">lostMy.Id</a> to find their lost identification cards.</p>
+      </div>
+    </div>
   </div>
 </div>
