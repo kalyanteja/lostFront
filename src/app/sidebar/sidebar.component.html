@@ -3,16 +3,19 @@
     <li>
       <a routerLink="" [class.activated]="currentUrl == '/'" title="About LostMy.Id">
         <i class="material-icons">perm_identity</i>
+        <strong class="left-space">  About us</strong>
       </a>
     </li>
     <li>
         <a routerLink="posts" [class.activated]="currentUrl == '/posts'" title="Search your lost identities">
           <i class="material-icons">search</i>
+          <strong class="left-space">  Search</strong>
         </a>
     </li>
     <li>
       <a routerLink="found" [class.activated]="currentUrl == '/found'" title="Enter lost identities">
         <i class="material-icons">assignment_ind</i>
+        <strong class="left-space">  Found?</strong>
       </a>
     </li>
     <!-- <li>

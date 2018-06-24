@@ -8,7 +8,7 @@ import { HttpParams } from '@angular/common/http';
 export class DataService {
 
   //prod server - http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/
-  //local url - http://localhost:3000/
+  //local url - http://localhost:8081/
   private apiUrl = "http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/";
   private countryApiUri = "./assets/json/countries.json";
 
