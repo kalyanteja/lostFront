@@ -17,6 +17,7 @@
         <div class="w-50 wordwrap"><strong>{{user$.ValidityDate  | date: 'dd-MMM-yyyy'}}</strong></div>
     </div>
 </div>
-<div class="mt-4">
-    <h6>If you think the above is your lost Identification document, and want to get it back. Do contact the <strong><a href="mailto:{{user$.SubmitterEmail}}">Finder</a></strong>, and coornidate. </h6>
+<div *ngIf="user$" class="mt-4">
+    <h6>If you think the above is your lost Identification document, and want to get it back. Do contact the 
+        <strong><a href="mailto:{{user$.SubmitterEmail}}?Subject=LostMy.Id - {{user$.GivenName}}'s {{user$.DocumentTypeName}}">Finder</a></strong> (click), and coornidate. </h6>
 </div>
