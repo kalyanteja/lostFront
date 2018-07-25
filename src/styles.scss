@@ -1,6 +1,15 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
 $max-width: 720px;
 
+.login-with-search {
+    color: #007bff !important;
+    cursor: pointer;
+}
+
+.id-type-min-width{
+    min-width: 150px;
+}
+
 body {
     margin: 0;
     background: #F2F2F2;

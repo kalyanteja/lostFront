@@ -1,11 +1,16 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
+  production: false,
+  auth: {
+    clientID: 'tFZnnySZqXI2Htu3DcmNG27hRO0gITZl',
+    domain: 'lost.auth0.com', // e.g., you.auth0.com
+    audience: 'https://lost.auth0.com/api/v2/', // e.g., http://localhost:3001
+    redirect: 'http://localhost:4200',
+    scope: 'openid profile email'
+  }
 };
-
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

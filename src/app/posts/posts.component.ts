@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService} from '../data.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute} from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-posts',
@@ -12,8 +13,9 @@ export class PostsComponent implements OnInit {
 
   posts$: Object;
   documentTypes: any;
-
+  searchResultsCount: number;
   searchResults: any;
+  showResults: boolean;
 
   searchData = {
     documentType: Object,
@@ -22,7 +24,7 @@ export class PostsComponent implements OnInit {
     country: ""
   };
 
-  constructor(private data: DataService, private route: ActivatedRoute) {
+  constructor(private data: DataService, private route: ActivatedRoute, public auth: AuthService) {
   }
 
   ngOnInit() {
@@ -33,10 +35,26 @@ export class PostsComponent implements OnInit {
   }
 
   search(){
-    console.log('search clicked');
-    this.data.searchDocuments(this.searchData).subscribe(data =>{
-      console.log(data);
-      this.searchResults = data;
-    })
+    console.log('search clicked' + this.auth.authenticated);
+
+    if (this.auth.authenticated) {
+      this.data.searchDocuments(this.searchData).subscribe(data =>{
+        this.searchResults = data;
+      })
+    } else {
+      this.data.searchDocumentsCount(this.searchData).subscribe(data =>{
+        console.log("searchDocumentsCount");
+        console.log(data);
+        this.searchResultsCount = (<any>data).searchCount;
+      })
+    }
+  }
+
+  loginFromSearchPage(){
+
+    this.auth.login();
+    console.log('...changed redirect.....');
+
+    console.log(this.auth.auth0);
   }
 }

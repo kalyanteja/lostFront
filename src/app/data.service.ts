@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
+import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from './auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +11,19 @@ export class DataService {
 
   //prod server - http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/
   //local url - http://localhost:8081/
-  private apiUrl = "http://lostidapi-env.5pqwkmbads.ap-southeast-1.elasticbeanstalk.com/";
+  private apiUrl = "http://localhost:8081/";
   private countryApiUri = "./assets/json/countries.json";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   getUsers(){
     return this.http.get(`${this.apiUrl}lostDocuments`);
   }
 
   getUser(documentId){
-    return this.http.get(`${this.apiUrl}lostDocuments/${documentId}`);
+    return this.http.get(`${this.apiUrl}lostDocuments/${documentId}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
+    });
   }
 
   getPosts(){
@@ -37,7 +41,6 @@ export class DataService {
   }
 
   searchDocuments(searchData){
-    console.log(searchData);
     let Params = new HttpParams();
 
     Params = Params.append('docNumber', searchData.docNumber);
@@ -47,6 +50,18 @@ export class DataService {
 
     // Make the API call using the new parameters.
     return this.http.get(`${this.apiUrl}searchDocuments/`, { params: Params });
+  }
+
+  searchDocumentsCount(searchData){
+    let Params = new HttpParams();
+
+    Params = Params.append('docNumber', searchData.docNumber);
+    Params = Params.append('docType', searchData.documentType);
+    Params = Params.append('givenName', searchData.givenName);
+    Params = Params.append('country', searchData.country);
+
+    // Make the API call using the new parameters.
+    return this.http.get(`${this.apiUrl}searchDocumentsCount/`, { params: Params });
   }
 
   getSummary(){

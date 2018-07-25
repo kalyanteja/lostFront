@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './auth/auth.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FoundComponent } from './found/found.component';
 import { SummaryComponent } from './summary/summary.component';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { SummaryComponent } from './summary/summary.component';
     DetailsComponent,
     FoundComponent,
     SummaryComponent,
+    CallbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { SummaryComponent } from './summary/summary.component';
     NgbModule.forRoot(),
     NgDatepickerModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

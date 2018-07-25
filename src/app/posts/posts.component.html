@@ -4,7 +4,7 @@
         <form  name="form" #f="ngForm" novalidate>
             <div class="row change-for-laptop">
                 <div class="form-group col-4">
-                    <label for="documentType">Identification Type</label>
+                    <label for="documentType" class="id-type-min-width">Identification Type</label>
                     <select class="form-control" name="documentType" id="documentType" #documentType="ngModel" [(ngModel)]="searchData.documentType">
                         <option *ngFor="let docType of documentTypes" [value]="docType.Id">{{docType.Name}}</option>
                     </select>
@@ -30,7 +30,7 @@
         </form>
     </div>
 
-    <div class="mt-5" *ngIf="searchResults">
+    <div class="mt-5" *ngIf="auth.authenticated && searchResults">
         <div *ngIf="searchResults.length==0">
             No Results
         </div>
@@ -45,4 +45,15 @@
             </ul>
         </div>
     </div>
+    <div class="mt-5" *ngIf="!auth.authenticated && searchResultsCount != null">
+        <div *ngIf="searchResultsCount==0">
+            No results matching your search criteria, please login for an advanced search.
+        </div>
+        
+        <div *ngIf="searchResultsCount>0">
+            <h5>There are <strong class="text-primary large-font">{{searchResultsCount}}</strong> documents matching your search.</h5>
+            <strong>Please <a class="login-with-search" (click)="loginFromSearchPage()">login</a> to access those documents...</strong>
+        </div>
+    </div>
+    
 </div>
